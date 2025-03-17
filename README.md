@@ -27,11 +27,11 @@
 ## 🏗️ Project Structure
 
 📦 tasks-app
- ┣ 📂 symfony         # Symfony API backend
- ┣ 📂 react           # React frontend
- ┣ 📂 nginx           # Nginx reverse proxy config
- ┣ 📄 compose.yml
- ┗ 📄 README.md
+ - ┣ 📂 symfony         # Symfony API backend
+ - ┣ 📂 react           # React frontend
+ - ┣ 📂 nginx           # Nginx reverse proxy config
+ - ┣ 📄 compose.yml
+ - ┗ 📄 README.md
 
 ---
 
