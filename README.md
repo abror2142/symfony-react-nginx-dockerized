@@ -51,15 +51,15 @@
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/tasks-app.git
-cd tasks-app
+git clone https://github.com/abror2142/symfony-react-nginx-dockerized
+cd symfony-react-nginx-dockerized
 ```
 
 ### 2. Environment Configuration
 Create your .env files for both backend and frontend (examples are provided):
 
-`cp env.dev .env`
-`cp backend/.env.dev backend/.env`
+`cp env.example .env`
+`cp symfony/.env.dev symfony/.env`
 
 Update environment variables as needed.
 
