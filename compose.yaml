@@ -1,8 +1,25 @@
 services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - mysqldata:/var/lib/mysql
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    healthcheck:
+      test: "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
   web:
     build:
       context: .
       dockerfile: ./nginx/Dockerfile
+    restart: unless-stopped
     ports:
       - "80:80"
       - "8000:8000"
@@ -16,8 +33,10 @@ services:
     build:
       context: ./symfony
       dockerfile: Dockerfile
+    restart: unless-stopped
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   
   react:
     build:
@@ -27,16 +46,6 @@ services:
       - react-static:/app/dist
     depends_on:
       - symfony
-
-  db:
-    image: postgres:latest
-    restart: unless-stopped
-    volumes:
-      - mysqldata:/var/lib/mysql
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
   
 volumes:
   mysqldata:
