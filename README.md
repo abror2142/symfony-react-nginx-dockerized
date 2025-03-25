@@ -27,10 +27,10 @@
 ## 🏗️ Project Structure
 
 📦 tasks-app
- - ┣ 📂 symfony         # Symfony API backend
- - ┣ 📂 react           # React frontend
- - ┣ 📂 nginx           # Nginx reverse proxy config
- - ┣ 📄 compose.yml
+ - ┣ 📂 symfony          # Symfony API backend
+ - ┣ 📂 react            # React frontend
+ - ┣ 📂 nginx            # Nginx reverse proxy config
+ - ┣ 📄 compose.yaml
  - ┗ 📄 README.md
 
 ---
@@ -59,6 +59,8 @@ cd symfony-react-nginx-dockerized
 Create your .env files for both backend and frontend (examples are provided):
 
 `cp env.example .env`
+
+
 `cp symfony/.env.dev symfony/.env`
 
 Update environment variables as needed.
