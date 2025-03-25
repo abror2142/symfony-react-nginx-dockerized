@@ -61,7 +61,7 @@ Create your .env files for both backend and frontend (examples are provided):
 `cp env.example .env`
 
 
-`cp symfony/.env.dev symfony/.env`
+`cp symfony/.env.example symfony/.env`
 
 Update environment variables as needed.
 
